@@ -5,4 +5,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="jogador1">Jogador 1  |X|</string>
     <string name="jogador2">Jogador 2  |O|</string>
+    <string name="parabens">"Parabéns! Você venceu!</string>
+    <string name="velha">Deu velha °-°</string>
 </resources>
