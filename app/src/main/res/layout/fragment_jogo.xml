@@ -14,6 +14,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tvJog1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
@@ -21,7 +22,7 @@
             style="@style/textview"/>
 
         <TextView
-            android:id="@+id/placar1"
+            android:id="@+id/tvPlacarJog1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -41,6 +42,7 @@
         android:orientation="horizontal"
         android:background="@color/gray_100">
         <TextView
+            android:id="@+id/tvJog2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
@@ -51,7 +53,34 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:id="@+id/placar2"
+            android:id="@+id/tvPlacarJog2"
+            android:text="0"
+            style="@style/textview"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray_600" />
+    <LinearLayout
+        android:id="@+id/linearVelha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/gray_100">
+        <TextView
+            android:id="@+id/tvVelha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/veia"
+            style="@style/textview"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:id="@+id/tvPlacarVelha"
             android:text="0"
             style="@style/textview"/>
     </LinearLayout>

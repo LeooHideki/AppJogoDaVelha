@@ -25,12 +25,13 @@ import java.util.Arrays;
 import java.util.Random;
 
 import br.senai.sp.jogodavelhaapp.R;
+import br.senai.sp.jogodavelhaapp.databinding.FragmentHardBinding;
 import br.senai.sp.jogodavelhaapp.databinding.FragmentJogoBinding;
 import br.senai.sp.jogodavelhaapp.util.PrefsUtil;
 
-public class JogoFragment extends Fragment {
+public class HardFragment extends Fragment {
     //variavel para acessar os elementos da view
-    private FragmentJogoBinding binding;
+    private FragmentHardBinding binding;
     //vetor de botoes para referenciar os botoes
     private Button[] botoes;
     //matriz de String que representa o tabuleiro
@@ -51,21 +52,37 @@ public class JogoFragment extends Fragment {
         setHasOptionsMenu(true);
 
         //instanciar o binding
-        binding = FragmentJogoBinding.inflate(inflater, container, false);
+        binding = FragmentHardBinding.inflate(inflater, container, false);
 
         //instanciar o vetor
-        botoes = new Button[9];
+        botoes = new Button[25];
 
         //associar o vetor aos botoes
         botoes[0] = binding.bt00;
         botoes[1] = binding.bt01;
         botoes[2] = binding.bt02;
-        botoes[3] = binding.bt10;
-        botoes[4] = binding.bt11;
-        botoes[5] = binding.bt12;
-        botoes[6] = binding.bt20;
-        botoes[7] = binding.bt21;
-        botoes[8] = binding.bt22;
+        botoes[3] = binding.bt03;
+        botoes[4] = binding.bt04;
+        botoes[5] = binding.bt10;
+        botoes[6] = binding.bt11;
+        botoes[7] = binding.bt12;
+        botoes[8] = binding.bt13;
+        botoes[9] = binding.bt14;
+        botoes[10] = binding.bt20;
+        botoes[11] = binding.bt21;
+        botoes[12] = binding.bt22;
+        botoes[13] = binding.bt23;
+        botoes[14] = binding.bt24;
+        botoes[15] = binding.bt30;
+        botoes[16] = binding.bt31;
+        botoes[17] = binding.bt32;
+        botoes[18] = binding.bt33;
+        botoes[19] = binding.bt34;
+        botoes[20] = binding.bt40;
+        botoes[21] = binding.bt41;
+        botoes[22] = binding.bt42;
+        botoes[23] = binding.bt43;
+        botoes[24] = binding.bt44;
 
         //associa o listener aos botoes
         for (Button bt : botoes){
@@ -73,7 +90,7 @@ public class JogoFragment extends Fragment {
         }
 
         //instanciar tabulerio
-        tabuleiro = new String[3][3];
+        tabuleiro = new String[5][5];
 
         /*
         for(int i = 0; i < 3; i++){
@@ -161,14 +178,14 @@ public class JogoFragment extends Fragment {
     private void resetar(){
         //percorrer os botões do vetor, voltando o background inicial
         //tornando-os clicáveis novamente e limpando os textos
-        for (int i = 0; i < 9; i++){
+        for (int i = 0; i < 25; i++){
             botoes[i].setBackgroundColor(getResources().getColor(R.color.gray_600));
             botoes[i].setText("");
             botoes[i].setClickable(true);
         }
         //limpar a matriz
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < 5; j++){
                 tabuleiro[i][j] = "";
             }
         }
@@ -195,14 +212,14 @@ public class JogoFragment extends Fragment {
                 break;
             //caso seja a opção de voltar ao inicio
             case R.id.menu_inicio:
-                NavHostFragment.findNavController(JogoFragment.this).navigate(R.id.action_jogoFragment_to_inicioFragment);
+                NavHostFragment.findNavController(HardFragment.this).navigate(R.id.action_hardFragment_to_inicioFragment);
                 break;
             //caso seja a opção de preferências
             case R.id.menu_preferencias:
-                NavHostFragment.findNavController(JogoFragment.this).navigate(R.id.action_jogoFragment_to_prefFragment);
+                NavHostFragment.findNavController(HardFragment.this).navigate(R.id.action_hardFragment_to_prefFragment);
                 break;
             case R.id.menu_hard:
-                NavHostFragment.findNavController(JogoFragment.this).navigate(R.id.action_jogoFragment_to_hardFragment);
+                NavHostFragment.findNavController(HardFragment.this).navigate(R.id.action_hardFragment_to_jogoFragment);
                 break;
         }
 
@@ -211,22 +228,22 @@ public class JogoFragment extends Fragment {
 
     private boolean vencedor(){
         //verifica se venceu nas linhas
-        for(int li = 0; li < 3; li++){
-            if(tabuleiro[li][0].equals(simbolo) && tabuleiro[li][1].equals(simbolo) && tabuleiro[li][2].equals(simbolo)) {
+        for(int li = 0; li < 5; li++){
+            if(tabuleiro[li][0].equals(simbolo) && tabuleiro[li][1].equals(simbolo) && tabuleiro[li][2].equals(simbolo) && tabuleiro[li][3].equals(simbolo) && tabuleiro[li][4].equals(simbolo)) {
                 return true;
             }
         }
         //verifica se venceu nas colunas
-        for(int col = 0; col < 3; col++){
-            if(tabuleiro[0][col].equals(simbolo) && tabuleiro[1][col].equals(simbolo) && tabuleiro[2][col].equals(simbolo)) {
+        for(int col = 0; col < 5; col++){
+            if(tabuleiro[0][col].equals(simbolo) && tabuleiro[1][col].equals(simbolo) && tabuleiro[2][col].equals(simbolo) && tabuleiro[3][col].equals(simbolo) && tabuleiro[4][col].equals(simbolo)) {
                 return true;
             }
         }
         //verifica se venceu nas diagonais
-        if (tabuleiro[0][0].equals(simbolo) && tabuleiro[1][1].equals(simbolo) && tabuleiro[2][2].equals(simbolo)){
+        if (tabuleiro[0][0].equals(simbolo) && tabuleiro[1][1].equals(simbolo) && tabuleiro[2][2].equals(simbolo) && tabuleiro[3][3].equals(simbolo) && tabuleiro[4][4].equals(simbolo)){
             return true;
         }
-        if (tabuleiro[0][2].equals(simbolo) && tabuleiro[1][1].equals(simbolo) && tabuleiro[2][0].equals(simbolo)) {
+        if (tabuleiro[0][4].equals(simbolo) && tabuleiro[1][3].equals(simbolo) && tabuleiro[2][2].equals(simbolo) && tabuleiro[3][1].equals(simbolo) && tabuleiro[4][0].equals(simbolo)) {
             return true;
         }
         return false;
@@ -256,7 +273,7 @@ public class JogoFragment extends Fragment {
         botao.setClickable(false);
         //verifica se venceu
 
-        if(numJogadas >= 5 && vencedor()){
+        if(numJogadas >= 9 && vencedor()){
             //informa que houve um vencedor
             Toast.makeText(getContext(), R.string.parabens, Toast.LENGTH_LONG).show();
             //verifica quem venceu
@@ -269,7 +286,7 @@ public class JogoFragment extends Fragment {
             atualizaPlacar();
             resetar();
 
-        }else if(numJogadas == 9){
+        }else if(numJogadas == 25){
             //informa se deu velha
             Toast.makeText(getContext(), R.string.velha, Toast.LENGTH_LONG).show();
             placarVelha++;

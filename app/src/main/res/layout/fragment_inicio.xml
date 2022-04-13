@@ -3,12 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.InicioFragment">
+    tools:context=".fragment.InicioFragment"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/gray_900"
+        android:src="@drawable/screen" />
+    <Button
+        android:id="@+id/btRobo"
+        android:layout_width="237dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="368dp"
+        android:layout_marginLeft="90dp"
+        android:background="@android:color/transparent"/>
+
+    <Button
+        android:id="@+id/btPlayer"
+        android:layout_width="237dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="460dp"
+        android:layout_marginLeft="90dp"
+        android:background="@android:color/transparent"
+        />
+
+    <Button
+        android:id="@+id/btInfo"
+        android:layout_width="237dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="552dp"
+        android:layout_marginLeft="90dp"
+        android:background="@android:color/transparent"/>
 
 </FrameLayout>

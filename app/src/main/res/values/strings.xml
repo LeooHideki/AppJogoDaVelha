@@ -3,8 +3,21 @@
     <string name="action_settings">Settings</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="jogador1">Jogador 1  |X|</string>
-    <string name="jogador2">Jogador 2  |O|</string>
+    <string name="jogador1">Jogador 1  |%1$s|</string>
+    <string name="jogador2">Jogador 2  |%1$s|</string>
     <string name="parabens">"Parabéns! Você venceu!</string>
     <string name="velha">Deu velha °-°</string>
+    <string name="resetar">Resetar o placar</string>
+    <string name="inicio">Voltar a tela inicial</string>
+    <string name="preferencias">Preferências</string>
+    <string name="simb_jog1">Símbolo do Jogador 1</string>
+    <string name="simb_jog2">Símbolo do Jogador 2</string>
+    <string name="summary_jog1">Escolha o símbolo do jogador 1</string>
+    <string name="summary_jog2">Escolha o símbolo do jogador 2</string>
+    <string name="jogo">Jogo da Velha</string>
+    <string name="veia">Velha</string>
+    <string name="dialog">Deseja resetar o tabuleiro?</string>
+    <string name="confirm">Confirmar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="atualizacao">Aguarde as próximas atualizações!!!</string>
 </resources>
